@@ -1,6 +1,6 @@
-package com.fastcampus.example.mysql.domain.member;
+package com.fastcampus.mysql.domain.member;
 
-import com.fastcampus.example.mysql.utils.MemberFixtureFactory;
+import com.fastcampus.mysql.utils.MemberFixtureFactory;
 import com.fastcampus.mysql.domain.member.entity.Member;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
