@@ -6,6 +6,8 @@ import com.fastcampus.mysql.domain.post.dto.PostCommand;
 import com.fastcampus.mysql.domain.post.entity.Post;
 import com.fastcampus.mysql.domain.post.service.PostReadService;
 import com.fastcampus.mysql.domain.post.service.PostWriteService;
+import com.fastcampus.mysql.util.CursorRequest;
+import com.fastcampus.mysql.util.PageCursor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,5 +40,13 @@ public class PostController {
             Pageable pageable
     ) {
         return postReadService.getPosts(memberId, pageable);
+    }
+
+    @GetMapping("/members/{memberId}/by-cursor")
+    public PageCursor<Post> getPostsByCursor(
+            @PathVariable Long memberId,
+            @ModelAttribute CursorRequest cursorRequest
+    ) {
+        return postReadService.getPosts(memberId, cursorRequest);
     }
 }
